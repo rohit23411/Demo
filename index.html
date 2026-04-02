@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Hub - Food Ordering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>🍔 Foodie Hub</h1>
+                <p class="tagline">Fresh Food, Fast Delivery</p>
+            </div>
+            <div class="cart-info">
+                <div class="cart-badge">
+                    <span class="cart-icon">🛒</span>
+                    <span id="cart-count">0</span>
+                </div>
+                <div class="cart-total">
+                    Total: ₹<span id="header-total">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Food Items -->
+    <section class="food-section">
+        <div class="section-header">
+            <h2>🍽️ Our Menu</h2>
+            <p>Choose from our delicious selection</p>
+        </div>
+        <div class="food-container">
+
+            <div class="food-item">
+                <div class="food-icon">🍕</div>
+                <h3>Margherita Pizza</h3>
+                <p class="food-desc">Fresh mozzarella & basil</p>
+                <div class="food-price">₹200</div>
+                <div class="stock-info">Stock: <span id="stock-Margherita-Pizza">15</span></div>
+                <button class="add-btn" data-item="Margherita Pizza" onclick="addToCart('Margherita Pizza', 200)">+ Add</button>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🍔</div>
+                <h3>Cheese Burger</h3>
+                <p class="food-desc">Crispy & delicious</p>
+                <div class="food-price">₹120</div>
+                <div class="stock-info">Stock: <span id="stock-Cheese-Burger">20</span></div>
+                <button class="add-btn" data-item="Cheese Burger" onclick="addToCart('Cheese Burger', 120)">+ Add</button>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🍝</div>
+                <h3>Pasta Carbonara</h3>
+                <p class="food-desc">Creamy & rich flavor</p>
+                <div class="food-price">₹180</div>
+                <div class="stock-info">Stock: <span id="stock-Pasta-Carbonara">12</span></div>
+                <button class="add-btn" data-item="Pasta Carbonara" onclick="addToCart('Pasta Carbonara', 180)">+ Add</button>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🌮</div>
+                <h3>Chicken Tacos</h3>
+                <p class="food-desc">Spicy & tasty</p>
+                <div class="food-price">₹150</div>
+                <div class="stock-info">Stock: <span id="stock-Chicken-Tacos">18</span></div>
+                <button class="add-btn" data-item="Chicken Tacos" onclick="addToCart('Chicken Tacos', 150)">+ Add</button>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🍜</div>
+                <h3>Noodles</h3>
+                <p class="food-desc">Veg or Non-Veg</p>
+                <div class="food-price">₹100</div>
+                <div class="stock-info">Stock: <span id="stock-Noodles">25</span></div>
+                <button class="add-btn" data-item="Noodles" onclick="addToCart('Noodles', 100)">+ Add</button>
+            </div>
+
+            <div class="food-item">
+                <div class="food-icon">🥗</div>
+                <h3>Caesar Salad</h3>
+                <p class="food-desc">Healthy & fresh</p>
+                <div class="food-price">₹140</div>
+                <div class="stock-info">Stock: <span id="stock-Caesar-Salad">10</span></div>
+                <button class="add-btn" data-item="Caesar Salad" onclick="addToCart('Caesar Salad', 140)">+ Add</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Inventory Section -->
+    <section class="inventory-section">
+        <div class="section-header">
+            <h2>📦 Inventory Status</h2>
+            <p>View all items and their stock levels</p>
+        </div>
+        <div id="inventory-display"></div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <h2>Your Cart 🛒</h2>
+        <ul id="cart-items"></ul>
+        <div class="total-section">
+            <h3>Total: ₹<span id="total">0</span></h3>
+        </div>
+        
+        <!-- Payment Section -->
+        <div class="payment-section" id="payment-section" style="display: none;">
+            <h2>Payment Options 💳</h2>
+            <div class="payment-methods">
+                <label>
+                    <input type="radio" name="payment" value="cash" checked> Cash on Delivery
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="card"> Credit/Debit Card
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="upi"> UPI
+                </label>
+            </div>
+            
+            <h4>Customer Details</h4>
+            <input type="text" id="customer-name" placeholder="Enter Your Name" required>
+            <input type="text" id="customer-address" placeholder="Enter Your Address" required>
+            <input type="text" id="customer-phone" placeholder="Enter Your Phone Number" required>
+            
+            <button onclick="processPayment()">Confirm Payment</button>
+            <button class="cancel-btn" onclick="cancelPayment()">Cancel</button>
+        </div>
+        
+        <div class="cart-actions">
+            <button onclick="clearCart()" class="clear-btn" id="clear-btn" style="display: none;">Clear Cart</button>
+            <button onclick="proceedToPayment()" class="proceed-btn" id="proceed-btn" style="display: none;">Proceed to Payment →</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
